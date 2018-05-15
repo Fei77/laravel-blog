@@ -15,10 +15,9 @@
 
         <div class="tags">
             <h5>Tags</h5>
-            <a href="#">Advertisement</a>,
-            <a href="#">Smart Quotes</a>,
-            <a href="#">Unique</a>,
-            <a href="#">Design</a>
+                @foreach($post->tags as $tag)
+                    <a href="{{ route('tags.show', $tag->slug) }}">{{ $tag->name or '' }}</a>
+                @endforeach
         </div>
         
         <!-- social media icon -->
