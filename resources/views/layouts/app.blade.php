@@ -10,17 +10,17 @@
 
 		<!-- Css link -->
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/owl.carousel.css">
-		<link rel="stylesheet" href="css/owl.transitions.css">
-		<link rel="stylesheet" href="css/animate.min.css">
-		<link rel="stylesheet" href="css/lightbox.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/preloader.css">
-		<link rel="stylesheet" href="css/image.css">
-		<link rel="stylesheet" href="css/icon.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/lightbox.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/preloader.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/image.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/icon.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
         @stack('styles')
 
@@ -81,19 +81,19 @@
 	</div>
 
 		<!-- load Js -->
-		<script src="js/jquery-1.11.3.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
-		<script src="js/waypoints.min.js"></script>
-		<script src="js/lightbox.js"></script>
-		<script src="js/jquery.counterup.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/html5lightbox.js"></script>
-		<script src="js/jquery.mixitup.js"></script>
-		<script src="js/wow.min.js"></script>
-		<script src="js/jquery.scrollUp.js"></script>
-		<script src="js/jquery.sticky.js"></script>
-		<script src="js/jquery.nav.js"></script>
-		<script src="js/main.js"></script>
+		<script src="{{ asset('js/waypoints.min.js') }}"></script>
+		<script src="{{ asset('js/lightbox.js') }}"></script>
+		<script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+		<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+		<script src="{{ asset('js/html5lightbox.js') }}"></script>
+		<script src="{{ asset('js/jquery.mixitup.js') }}"></script>
+		<script src="{{ asset('js/wow.min.js') }}"></script>
+		<script src="{{ asset('js/jquery.scrollUp.js') }}"></script>
+		<script src="{{ asset('js/jquery.sticky.js') }}"></script>
+		<script src="{{ asset('js/jquery.nav.js') }}"></script>
+		<script src="{{ asset('js/main.js') }}"></script>
 	</body>
 </html>
