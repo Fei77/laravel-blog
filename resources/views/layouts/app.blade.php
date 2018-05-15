@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="{{ asset('css/icon.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
         @stack('styles')
 
@@ -83,7 +84,7 @@
 		<!-- load Js -->
 		<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
 		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
+		{{-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script> --}}
 		<script src="{{ asset('js/waypoints.min.js') }}"></script>
 		<script src="{{ asset('js/lightbox.js') }}"></script>
 		<script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
