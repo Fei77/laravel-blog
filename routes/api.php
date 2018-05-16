@@ -16,3 +16,5 @@ use Illuminate\Http\Request;
 Route::apiResources([
     'posts' => 'PostController'
 ]);
+
+Route::post('posts/is-exists', 'PostController@isExists');

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/posts', 'PostController')->only(['index', 'show']);
 Route::resource('/tags', 'TagController')->only(['index', 'show']);

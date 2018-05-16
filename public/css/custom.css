@@ -86,3 +86,19 @@
     color: #00bcd4;
     padding: 0 5px;
 }
+
+.navbar-brand a {
+    color: #80d6a3;
+    padding: 20px 0;
+    line-height: 20px;
+}
+
+.navbar-brand {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    border-bottom: 1px solid #e1e1e1;
+}
