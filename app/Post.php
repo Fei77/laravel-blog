@@ -33,7 +33,8 @@ class Post extends Model
     protected $appends = [
         'image_url',
         'image_preview_url',
-        'published_date'
+        'published_date',
+        'excerpt'
     ];
 
     /**
@@ -65,6 +66,14 @@ class Post extends Model
     }
 
     /**
+     * Accessor for excerpt attribute
+     */
+    public function getExcerptAttribute()
+    {
+        return ($this->content ? str_limit(strip_tags($this->content), 250) : '');
+    }
+
+    /**
      * Return post's author
      * 
      * @return \Illuminate\Database\Eloquent\BelongsTo
@@ -72,6 +81,16 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    /**
+     * Return post's category
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     /**
