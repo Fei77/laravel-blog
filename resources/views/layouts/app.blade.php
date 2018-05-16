@@ -36,8 +36,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="block text-center">
-							<h1>BIG HEADLINE FOR BLOG</h1>
-							<p>13 MARCH 2015 / BY SARA SMITH</p>
+							{{-- <h1>BIG HEADLINE FOR BLOG</h1>
+							<p>13 MARCH 2015 / BY SARA SMITH</p> --}}
 						</div>
 					</div>
 				</div>
@@ -80,6 +80,9 @@
 
 		@include('_includes.footer')
 	</div>
+
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbef3c672c6979"></script>
 
 		<!-- load Js -->
 		<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>

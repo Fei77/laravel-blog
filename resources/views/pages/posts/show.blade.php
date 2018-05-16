@@ -22,10 +22,14 @@
         
         <!-- social media icon -->
         <div class="media-link">
-            <a href="#"><i class="fa fa-facebook"></i></a>
+            
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_inline_share_toolbox"></div>
+            
+            {{-- <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a> --}}
         </div>
     </div>
 @endsection
