@@ -23,6 +23,15 @@
     margin: 7px 9px 0 0;
 }
 
+#blog-left .block p {
+    font-size: 15px;
+}
+
+#blog-left .block span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
 
 .single-blog img{
     margin-bottom:15px;
