@@ -91,4 +91,14 @@ class PostController extends Controller
     {
         //
     }
+
+    /**
+     * Check if post exists
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return bool
+     */
+    public function isExists(Request $request) {
+        return response()->json(Post::where('title', $request->title)->exists());
+    }
 }

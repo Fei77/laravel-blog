@@ -18,3 +18,6 @@ Route::resource('/tags', 'TagController')->only(['index', 'show']);
 Route::resource('/categories', 'CategoryController')->only(['index', 'show']);
 
 Route::get('/posts/search', 'PostController@seatch')->name('posts.search');
+
+
+Route::get('test/{id}', 'Api\PostController@isExists');
