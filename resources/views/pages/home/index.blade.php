@@ -11,9 +11,9 @@
         <p>{{ $post->excerpt or '' }}</p>
         <div class="blog-info">
             <ul>
-                <li><a href="">{{ $post->published_date or '' }}</a></li>
-                <li><a href="">{{ $post->author->name }}</a></li>
-                <li><a href="">{{ $post->category->name }}</a></li>
+                <li><a href="{{ route('posts.search') }}">{{ $post->published_date or '' }}</a></li>
+                <li><a href="{{ route('posts.search') }}">{{ $post->author->name }}</a></li>
+                <li><a href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a></li>
                 {{-- <li><a href="">10 Comments</a></li> --}}
             </ul>
             
