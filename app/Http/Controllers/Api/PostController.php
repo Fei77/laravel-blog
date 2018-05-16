@@ -55,7 +55,7 @@ class PostController extends Controller
 
         $post->tags()->sync($tags);
 
-        return response()->json($post);
+        return new PostResource($post);
     }
 
     /**
