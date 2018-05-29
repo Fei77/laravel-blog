@@ -54,7 +54,7 @@ class Media extends Model
     }
 
     /**
-     * Add event listener
+     * The "booting" method of the model.
      * 
      * @return void
      */

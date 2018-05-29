@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
+    use LaratrustUserTrait;
     use Notifiable;
 
     /**
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'api_token'
     ];
 
     /**
@@ -26,4 +28,40 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Return a unique personnal access token.
+     *
+     * @var String
+     */
+    public static function generateApiToken(): string
+    {
+        do {
+            $api_token = str_random(60);
+        } while (User::where('api_token', $api_token)->exists());
+
+        return $api_token;
+    }
+
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        /**
+         * Listen to creating user event
+         * and automatically create a unique api_token
+         * 
+         * @param \App\User $user
+         * @return void
+         */
+        User::creating(function($user) {
+            $user->api_token = $this->generateApiToken();
+        });
+    }
 }
