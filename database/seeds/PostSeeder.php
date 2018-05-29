@@ -11,19 +11,51 @@ class PostSeeder extends Seeder
 
     /**
      * Array of user IDs
+     * 
+     * @var array
      */
     protected $users;
 
     /**
      * Array of tag IDs
+     * 
+     * @var array
      */
     protected $tags;
+
+    /**
+     * Array of images from unsplash
+     * 
+     * @var array
+     */
+    protected $images;
 
     public function __construct()
     {
         $this->faker = \Faker\Factory::create();
         $this->users = \App\User::pluck('id')->all();
         $this->tags = \App\Tag::pluck('id')->all();
+
+        /**
+         * fetch random images from unsplash
+         */
+        $options = [
+            'client_id' => env('UNSPLASH_API_KEY'),
+            'query' => 'food',
+            'per_page' => 30
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/search/photos?'.http_build_query($options));
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $server_output = curl_exec ($ch);
+
+        curl_close ($ch);
+
+        $this->images = json_decode($server_output)->results;
     }
 
     /**
@@ -67,11 +99,17 @@ class PostSeeder extends Seeder
      */
     public function createPost($category)
     {
-        $category->posts()->create([
+        $post = $category->posts()->create([
             'author_id' => array_rand_value($this->users),
             'title' => $this->generateWords(5, 8),
             'content' => $this->generateParagraphs()
-        ])->tags()->sync(array_rand_value($this->tags, rand(2, 5)));
+        ]);
+        
+        $post->save();
+        
+        $post->tags()->sync(array_rand_value($this->tags, rand(2, 5)));
+
+        $this->generateImage($post, 'images/generated/posts', 'banner', $post->title);
     }
 
     /**
@@ -97,8 +135,35 @@ class PostSeeder extends Seeder
     }
 
     /**
-     * Gene
+     * Generate random image url from unsplash
+     * 
+     * @return string
      */
+    public function generateRandomImageUrl()
+    {
+        return array_rand_value($this->images)->urls->regular;
+    }
+
+    /**
+     * Store image to storage
+     * 
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param string $folder
+     * @param string $key
+     * @param string $alt
+     */
+    public function generateImage($model, $folder, $key = '', $alt ='')
+    {
+        $image = Helpers::image($this->generateRandomImageUrl())->folder($folder)->encode('jpg', 90)->saveWithThumbnail(400, null);
+
+        $model->media()->create([
+            'original_filename' => $image['originalName'],
+            'preview_filename' => $image['thumbnailName'],
+            'mime_type' => 'jpg',
+            'key' => $key,
+            'alt_text' => $alt
+        ]);
+    }
 
     public function truncateTable()
     {
