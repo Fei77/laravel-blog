@@ -26,13 +26,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'api_token'
     ];
 
     /**
      * Return a unique personnal access token.
      *
-     * @var String
+     * @var string
      */
     public static function generateApiToken(): string
     {

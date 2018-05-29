@@ -54,6 +54,7 @@ class PostSeeder extends Seeder
         ]);
 
         foreach(range(1, 5) as $i) {
+            $this->command->info("Creating category {$category->name} post #{$i}");
             $this->createPost($category);
         }
     }
@@ -86,7 +87,7 @@ class PostSeeder extends Seeder
     }
 
     /**
-     * Generate random paragraph
+     * Generate paragraph from random string
      * 
      * @return string
      */
