@@ -11,10 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        App\User::create([
-            'name' => 'Admin',
-            'email' => 'admin@app.com',
-            'password' => bcrypt('BigAnimeTiddy')
-        ]);
+        $this->call(LaratrustSeeder::class);
     }
 }

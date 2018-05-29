@@ -61,7 +61,7 @@ class User extends Authenticatable
          * @return void
          */
         User::creating(function($user) {
-            $user->api_token = $this->generateApiToken();
+            $user->api_token = $user->generateApiToken();
         });
     }
 }
