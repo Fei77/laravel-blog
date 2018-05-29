@@ -109,7 +109,7 @@ class PostSeeder extends Seeder
         
         $post->tags()->sync(array_rand_value($this->tags, rand(2, 5)));
 
-        $this->generateImage($post, 'images/generated/posts', 'banner', $post->title);
+        $this->generateImage($post, 'images/generated/posts', 'post_thumbnail', $post->title);
     }
 
     /**
