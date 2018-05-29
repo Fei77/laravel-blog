@@ -68,10 +68,10 @@ class PostSeeder extends Seeder
     public function createPost($category)
     {
         $category->posts()->create([
-            'author_id' => 1,
+            'author_id' => array_rand_value($this->users),
             'title' => $this->generateWords(5, 8),
             'content' => $this->generateParagraphs()
-        ]);
+        ])->tags()->sync(array_rand_value($this->tags, rand(2, 5)));
     }
 
     /**
@@ -105,6 +105,8 @@ class PostSeeder extends Seeder
         $this->command->info('Truncating category table');
         Schema::disableForeignKeyConstraints();
         \App\Category::truncate();
+        \App\Post::truncate();
+        DB::table('taggables')->where('taggable_type', 'App\Post')->delete();
         Schema::enableForeignKeyConstraints();
     }
 }

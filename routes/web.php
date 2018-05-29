@@ -20,4 +20,9 @@ Route::resource('/categories', 'CategoryController')->only(['index', 'show']);
 Route::get('/posts/search', 'PostController@seatch')->name('posts.search');
 
 
-Route::get('test/{id}', 'Api\PostController@isExists');
+Route::get('test', function() {
+    $arr = [1,2,3,4,5,6,7,8,9];
+
+    return array_rand_value($arr, 9);
+});
+

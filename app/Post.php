@@ -59,6 +59,8 @@ class Post extends Model
 
     /**
      * Published date accessor
+     * 
+     * @return string
      */
     public function getPublishedDateAttribute()
     {
@@ -67,6 +69,8 @@ class Post extends Model
 
     /**
      * Accessor for excerpt attribute
+     * 
+     * @return string
      */
     public function getExcerptAttribute()
     {
