@@ -8,6 +8,8 @@ class Media extends Model
 {
     /**
      * The attributes that are mass assignable
+     * 
+     * @var array
      */
     protected $fillable = [
         'preview_filename',
@@ -20,6 +22,36 @@ class Media extends Model
         'alt_text',
         'title'
     ];
+
+    /**
+     * The attributes that are appended
+     * 
+     * @var array
+     */
+    protected $appends = [
+        'preview_url',
+        'original_url'
+    ];
+
+    /**
+     * The accessor for preview_url attribute
+     * 
+     * @return string
+     */
+    public function getPreviewUrlAttribute()
+    {
+
+    }
+
+    /**
+     * The accessor for original_url attribute
+     * 
+     * @return string
+     */
+    public function getOriginalUrlAttribute()
+    {
+        
+    }
 
     /**
      * Add event listener
