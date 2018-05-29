@@ -40,7 +40,7 @@ class Media extends Model
      */
     public function getPreviewUrlAttribute()
     {
-
+        $this->preview_filename ? asset($this->preview_filename) : '//via.placeholder.com/800x400'
     }
 
     /**
@@ -50,7 +50,7 @@ class Media extends Model
      */
     public function getOriginalUrlAttribute()
     {
-        
+        $this->original_filename ? asset($this->original_filename) : '//via.placeholder.com/800x400'
     }
 
     /**
