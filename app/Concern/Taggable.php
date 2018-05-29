@@ -40,4 +40,24 @@ trait Taggable
             $query->where('tags.slug', $slug);
         });
     }
+
+    /**
+     * Sync resource's tags from given tag's name
+     * 
+     * @param array $tags
+     * @return void
+     */
+    public function syncTags($tags)
+    {
+        $ids = [];
+
+        foreach($tags as $tag) {    
+            $tag = Tag::firstOrCreate(
+                ['name' => $name] 
+            );
+            $ids[] = $tag->id;
+        }
+
+        $this->tags()->sync($ids);
+    }
 }

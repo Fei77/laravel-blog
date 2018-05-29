@@ -1,6 +1,30 @@
 @extends('layouts.app')
 
-@section('title', $category->name)
+@section('title', "Category {$category->name}")
+
+@push('meta')
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{ $category->name or '' }}">
+    <meta itemprop="description" content="{{ $description or '' }}">
+    <meta itemprop="image" content="{{ asset((isset($image) ? $image : '')) }}">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ Setting::get('company.contacts.socials.twitter') }}">
+    <meta name="twitter:title" content="{{ $title or '' }}">
+    <meta name="twitter:description" content="{{ $description or '' }}">
+    <meta name="twitter:image:src" content="{{ asset((isset($image) ? $image : '')) }}">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ $title or '' }}" />
+    <meta property="og:type" content="place" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset((isset($image) ? $image : '')) }}" />
+    <meta property="og:description" content="{{ $description or '' }}" />
+    <meta property="og:site_name" content="{{ Setting::get('company.name') }}" />
+    <meta property="article:published_time" content="{{ $created_at or '' }}" />
+    <meta property="article:modified_time" content="{{ $updated_at or '' }}" />
+@endpush
 
 @section('content')
 
