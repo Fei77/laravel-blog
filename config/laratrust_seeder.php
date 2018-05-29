@@ -9,9 +9,22 @@ return [
         ],
         'administrator' => [
             'users' => 'c,r,u,d',
+            'posts' => 'c,r,u,d',
+            'categories' => 'c,r,u,d',
+            'comments' => 'c,r,u,d',
+            'likes' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'user' => [
+        'editor' => [
+            'posts' => 'c,r,u,d',
+            'categories' => 'c,r,u,d',
+            'comments' => 'c,r,u,d',
+            'likes' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
+        'member' => [
+            'comments' => 'c,r,u,d',
+            'likes' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
     ],
