@@ -102,7 +102,7 @@ class PostSeeder extends Seeder
         $post = $category->posts()->create([
             'author_id' => array_rand_value($this->users),
             'title' => $this->generateWords(5, 8),
-            'content' => $this->generateParagraphs()
+            'content' => $this->generateParagraphsWithImg()
         ]);
         
         $post->save();
@@ -132,6 +132,40 @@ class PostSeeder extends Seeder
     public function generateParagraphs()
     {
         return "<p>{$this->faker->sentences(rand(3,4), true)}</p>";
+    }
+
+    /**
+     * Generate paragraphs with img tag inside it
+     * 
+     * @return string
+     */
+    public function generateParagraphsWithImg()
+    {
+        $string = '';
+
+        foreach(range(1, rand(1,3)) as $i) {
+            $string = $string . $this->generateParagraphs();
+        }
+
+        $string = $string . $this->generateImgTag();
+
+        foreach(range(1, rand(1,3)) as $i) {
+            $string = $string . $this->generateParagraphs();
+        }
+
+        return $string;
+    }
+
+    /**
+     * Generate img tag
+     * 
+     * @return string
+     */
+    public function generateImgTag()
+    {
+        $image = asset(Helpers::image($this->generateRandomImageUrl())->folder('images/generated/posts')->encode('jpg', 90)->save());
+
+        return "<img src='{$image}' />";
     }
 
     /**
