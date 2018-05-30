@@ -15,11 +15,14 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return PostResource::collection(
+            Post::latest()->paginate($request->input('limit', 20))
+        );
     }
 
     /**
@@ -64,9 +67,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        //
+        return new PostResource(Post::findOrFail($id));
     }
 
     /**
