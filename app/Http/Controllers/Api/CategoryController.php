@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\CategoryResource;
 use App\Http\Controllers\Controller;
 use App\Category;
 
@@ -16,7 +17,9 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        
+        return CategoryResource::collection(
+            Category::latest()->paginate($request->input('limit', 20))
+        );
     }
 
     /**

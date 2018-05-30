@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::apiResources([
+    'categories' => 'CategoryController',
     'posts' => 'PostController'
 ]);
 
