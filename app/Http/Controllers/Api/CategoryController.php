@@ -30,7 +30,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CategoryResource(Category::findOrFail($id));
     }
 
     /**
