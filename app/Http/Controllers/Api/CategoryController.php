@@ -36,12 +36,12 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param string $slug 
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        return new CategoryResource(Category::findOrFail($id));
+        return new CategoryResource(Category::whereSlug($slug)->firstOrFail());
     }
 
     /**

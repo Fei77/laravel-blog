@@ -127,4 +127,16 @@ class Post extends Model
         ];
     }
 
+    /**
+     * Scope a query to filter resource from given slug.
+     *
+     * @param string $slug
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeWhereSlug($query, $slug)
+    {
+        return $query->where('slug', $slug);
+    }
+
 }
